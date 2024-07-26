@@ -68,4 +68,4 @@
 * Também é possível verificar a análise de qualidade de código.
 * Além dos testes unitários o Jenkins faz o deploy da API em um servidor docker.
 * A API também poderá ser acessada nesse
-  servidor:  [http://cloudtecnologia.dynns.com:8099/swagger-ui.html](http://cloudtecnologia.dynns.com:8095/swagger-ui.html)
+  servidor:  [http://cloudtecnologia.dynns.com:8099/swagger-ui.html](http://cloudtecnologia.dynns.com:8099/swagger-ui.html)
