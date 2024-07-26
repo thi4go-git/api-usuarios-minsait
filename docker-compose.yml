@@ -15,7 +15,7 @@ services:
     networks:
       - api-usuarios-minsait-network
 
-  alvara-backend:
+  api-usuarios-minsait-backend:
     container_name: api-usuarios-minsait-backend
     image: api-usuarios-minsait:latest
     build:
