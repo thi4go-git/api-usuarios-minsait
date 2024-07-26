@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: production
+  application:
+    name: Minsait - API de Usuários
+  info:
+    app:
+      version: 2024.07
