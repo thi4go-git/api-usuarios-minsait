@@ -5,6 +5,7 @@
 * PostgreSQL 15
 * Spring Security + OAuth2 Para autenticação com JWT
 * A API foi desenvolvida de acordo com os princípios SOLID.
+* CI/CD Jenkins/Sonar para análise contínua de código + testes unitários + Deploy Docker.
 
 ### Execução de Testes unitários LOCALHOST:
 
