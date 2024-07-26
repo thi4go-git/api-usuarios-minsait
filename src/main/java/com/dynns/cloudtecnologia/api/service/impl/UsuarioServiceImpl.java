@@ -43,8 +43,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Page<Usuario> findAll(int page, int size, Integer id, String nome, String email) {
         Usuario userFiltro = Usuario.builder()
                 .id(id)
-                .nome(nome.isBlank() || nome.isEmpty() ? null : nome)
-                .email(email.isBlank() || email.isEmpty() ? null : email)
+                .nome(nome)
+                .email(email)
                 .build();
 
         ExampleMatcher matcher = ExampleMatcher
@@ -85,9 +85,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     @Transactional
     public void delete(Integer id) {
-        usuarioRepository.findById(id).map(usuario -> {
-            usuarioRepository.delete(usuario);
-            return Void.TYPE;
-        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, USER_NOTFOUND));
+        Usuario userDelete = usuarioRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, USER_NOTFOUND + id));
+        usuarioRepository.delete(userDelete);
     }
 }

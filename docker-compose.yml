@@ -1,0 +1,48 @@
+version: "3"
+services:
+  banco-usuarios-minsait:
+    container_name: banco-usuarios-minsait
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=banco-usuarios-minsait
+      - POSTGRES_PASSWORD=banco-usuarios-minsait
+    restart: always
+    ports:
+      - "5430:5432"
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+    networks:
+      - api-usuarios-minsait-network
+
+  alvara-backend:
+    container_name: api-usuarios-minsait-backend
+    image: api-usuarios-minsait:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - JAR_FILE=target/api-usuarios-minsait-2024.07.jar
+        - CONTEXT=api-usuarios-minsait
+    ports:
+      - 8099:8080
+    restart: always
+    depends_on:
+      - banco-usuarios-minsait
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://banco-usuarios-minsait:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=banco-usuarios-minsait
+      - SPRING_DATASOURCE_PASSWORD=banco-usuarios-minsait
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
+      - SPRING_HIBERNATE_FORMAT_SQL=true
+      - SPRING_HIBERNATE_SHOW_SQL=false
+      - SPRING_HIBERNATE_DDL_AUTO=update
+    networks:
+      - api-usuarios-minsait-network
+
+networks:
+  api-usuarios-minsait-network:
+
+volumes:
+  postgresql:
+  postgresql_data:
