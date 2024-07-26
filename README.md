@@ -7,6 +7,7 @@
 * A API foi desenvolvida de acordo com os princípios SOLID.
 * CI/CD Jenkins/Sonar para análise contínua de código + testes unitários + Deploy Docker.
 * Flyway para migração / versionamento do banco de dados + Criar cargas iniciais;
+* Testes unitários com JUnit5 + REST Assured
 
 ### Execução de Testes unitários LOCALHOST:
 
