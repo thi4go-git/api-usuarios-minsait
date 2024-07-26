@@ -6,6 +6,7 @@
 * Spring Security + OAuth2 Para autenticação com JWT
 * A API foi desenvolvida de acordo com os princípios SOLID.
 * CI/CD Jenkins/Sonar para análise contínua de código + testes unitários + Deploy Docker.
+* Flyway para migração / versionamento do banco de dados + Criar cargas iniciais;
 
 ### Execução de Testes unitários LOCALHOST:
 

@@ -96,7 +96,7 @@ public class UsuarioController {
     @DeleteMapping("/{id}")
     @ApiOperation("Deleta o Usuário pelo ID")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Usuário deletado com sucesso!"),
+            @ApiResponse(code = 204, message = "Usuário deletado com sucesso!"),
             @ApiResponse(code = 404, message = MSG_NOTFOUND),
             @ApiResponse(code = 500, message = ERRO_INTERNO)
     })
